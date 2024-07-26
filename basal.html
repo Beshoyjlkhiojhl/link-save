@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Storage</title>
+    <link rel="stylesheet" href="basal.css">
+</head>
+<body>
+  
+    <div class="container">
+        <h1>Link Storage</h1>
+        <form id="linkForm">
+            <input type="text" id="linkTitle" placeholder="Link Title" required>
+            <input type="url" id="linkUrl" placeholder="Link URL" required>
+            <button type="submit">Add Link</button>
+        </form>
+        <ul id="linksList"></ul>
+        <p>&copy Beshoy Ashraf</p>
+    </div>
+    <script>
+      document.getElementById('linkForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const linkTitle = document.getElementById('linkTitle').value;
+    const linkUrl = document.getElementById('linkUrl').value;
+
+    const linkList = document.getElementById('linksList');
+
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.textContent = linkTitle;
+    link.href = linkUrl;
+    link.target = "_blank";
+
+    listItem.appendChild(link);
+    linkList.appendChild(listItem);
+
+    document.getElementById('linkForm').reset();
+});
+
+    </script>
+</body>
+</html>
